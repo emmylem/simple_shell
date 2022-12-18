@@ -53,7 +53,7 @@ typedef struct alias_s
 {
 	char *name;
 	char *value;
-	struct aliases_s *next;
+	struct alias_s *next;
 } alias_t;
 
 /* Global aliases linked list */
