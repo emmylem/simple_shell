@@ -109,3 +109,42 @@ void print_alias(alias_t *alias)
 	write(STDOUT_FILENO, alias_string, len);
 	free(alias_string);
 }
+/**
+ * replace_aliases - replaces matching alias in  the arguments
+ * @args: 2d pointer to argument
+ *
+ * Return: pointer to arguments
+ */
+char **replace_aliases(char **args)
+{
+	alias_t *tmp;
+	int i;
+	char *new_value;
+
+	if (_strcmp(args[0], "alias") == 0)
+		return (args);
+	for (i = 0; args[i]; i++)
+	{
+		tmp = aliases;
+		while (tmp)
+		{
+			if (_strcmp(args[i], tmp->name) == 0)
+			{
+				new_value = malloc(sizeof(char) * (_strlen(tmp->value)) + 1);
+				if (!new_value)
+				{
+					free_args(args, args);
+					return (NULL);
+				}
+				_strcpy(new_value, tmp->value);
+				free(args[i]);
+				args[i] = new_value;
+				i--;
+				break;
+			}
+			tmp = tmp->next;
+		}
+	}
+
+	return (args);
+}
