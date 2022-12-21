@@ -79,7 +79,7 @@ int _strcmp(char *b1, char *b2)
 * @b2: pointer to string
 * @n: first n bytes of string to compare
 *
-* Return : less than 0 if b1 iis shorter than b2
+* Return: less than 0 if b1 iis shorter than b2
 * 0 if b1 and b2 match
 */
 int _strncmp(const char *b1, const char *b2, size_t n)
