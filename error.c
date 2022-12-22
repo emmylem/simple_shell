@@ -1,5 +1,10 @@
 #include "shell.h"
 #include <stdio.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <errno.h>
 
 int create_error(char **args, int err);
 int len_num(int num);

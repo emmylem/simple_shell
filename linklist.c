@@ -2,6 +2,25 @@
 
 list_t *add_node_end(list_t **head, char *dir);
 void free_list(list_t *head);
+void free_alias_list(alias_t *head);
+
+/**
+ * free_alias_list - free a alias_t list
+ * @head: head of list
+ */
+void free_alias_list(alias_t *head)
+{
+	alias_t *next;
+
+	while (head)
+	{
+		next = head->next;
+		free(head->name);
+		free(head->value);
+		free(head);
+		head = next;
+	}
+}
 
 /**
  * add_node_end - adds node
