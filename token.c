@@ -76,6 +76,7 @@ char **_strtok(char *line, char *delim)
 		while (line[count] == *delim)
 
 		ptr[t] = malloc(sizeof(char) * (letters + 1));
+		ptr[t] = malloc(sizeof(letters));
 		if (!ptr[t])
 		{
 			for (count -= 1; count >= 0; count--)
